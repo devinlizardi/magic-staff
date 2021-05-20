@@ -1,3 +1,8 @@
+# Magic Staff Mod
+## By Devin
+
+Basic mod file created for teaching purposes, much info to follow
+
 -------------------------------------------
 Source installation information for modders
 -------------------------------------------
