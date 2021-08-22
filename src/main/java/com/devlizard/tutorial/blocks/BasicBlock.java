@@ -10,7 +10,9 @@ import net.minecraftforge.common.ToolType;
 
 public class BasicBlock extends Block {
     private static int MAX_STACK_SIZE = 20;
-    public static Item.Properties basicProps = new Item.Properties().maxStackSize(MAX_STACK_SIZE).group(TutorialMod.TAB);
+    public static Item.Properties basicProps = new Item.Properties()
+                                                .maxStackSize(MAX_STACK_SIZE)
+                                                .group(TutorialMod.TAB);
 
     public BasicBlock() {
         super(Block.Properties.create(Material.CLAY)

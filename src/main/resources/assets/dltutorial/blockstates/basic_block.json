@@ -1,5 +1,5 @@
 {
   "variants" : {
-    "" : {"model" :  "dltutorial:block/basic_block_model"}
+    "" : {"model" :  "dltutorial:block/basic_block"}
   }
 }

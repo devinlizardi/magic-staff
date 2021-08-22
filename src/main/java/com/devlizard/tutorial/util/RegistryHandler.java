@@ -2,7 +2,6 @@ package com.devlizard.tutorial.util;
 
 import com.devlizard.tutorial.TutorialMod;
 import com.devlizard.tutorial.blocks.BasicBlock;
-import com.devlizard.tutorial.blocks.BasicBlockStartup;
 import com.devlizard.tutorial.items.ItemBase;
 import com.devlizard.tutorial.items.Mushyroom;
 import net.minecraft.block.Block;
@@ -29,17 +28,18 @@ public class RegistryHandler {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         ITEMS.register(modEventBus);
         BLOCKS.register(modEventBus);
-
-        //modEventBus.register(BasicBlockStartup.class);
     }
 
     //Items
     public static final RegistryObject<Item> RUBY = ITEMS.register("ruby", ItemBase::new);
     public static final RegistryObject<Item> STAFF = ITEMS.register("staff", ItemBase::new);
     public static final RegistryObject<Item> MUSHYROOM = ITEMS.register("mushyroom", Mushyroom::new);
-    public static final RegistryObject<Item> BASICBLOCKITEM = ITEMS.register("basic_block",
-                                                                () -> new BlockItem(new BasicBlock(), BasicBlock.basicProps));
 
     //Blocks
-    public static final RegistryObject<Block> BASICBLOCK = BLOCKS.register("basic_block", BasicBlock::new);
+    public static final RegistryObject<Block> BASIC_BLOCK = BLOCKS.register("basic_block", BasicBlock::new);
+
+    //BlockItems
+    public static final RegistryObject<Item> BASIC_BLOCK_ITEM = ITEMS.register("basic_block",
+            () -> new BlockItem(BASIC_BLOCK.get(), BasicBlock.basicProps));
+
 }
