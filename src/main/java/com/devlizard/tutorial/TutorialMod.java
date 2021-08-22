@@ -15,7 +15,7 @@ import org.apache.logging.log4j.Logger;
 * Clean up class
 * (public v private) (static v non) (final v non) Type name = value (MOD_ID)
 * */
-@Mod("dltutorial")
+@Mod(TutorialMod.MOD_ID)
 public class TutorialMod
 {
     public static final Logger LOGGER = LogManager.getLogger();

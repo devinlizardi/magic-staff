@@ -1,9 +1,12 @@
 package com.devlizard.tutorial.util;
 
 import com.devlizard.tutorial.TutorialMod;
+import com.devlizard.tutorial.blocks.BasicBlock;
+import com.devlizard.tutorial.blocks.BasicBlockStartup;
 import com.devlizard.tutorial.items.ItemBase;
 import com.devlizard.tutorial.items.Mushyroom;
 import net.minecraft.block.Block;
+import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.RegistryObject;
@@ -25,12 +28,18 @@ public class RegistryHandler {
     public static void register() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         ITEMS.register(modEventBus);
-        //BLOCKS.register(modEventBus);
+        BLOCKS.register(modEventBus);
+
+        //modEventBus.register(BasicBlockStartup.class);
     }
 
     //Items
     public static final RegistryObject<Item> RUBY = ITEMS.register("ruby", ItemBase::new);
     public static final RegistryObject<Item> STAFF = ITEMS.register("staff", ItemBase::new);
     public static final RegistryObject<Item> MUSHYROOM = ITEMS.register("mushyroom", Mushyroom::new);
+    public static final RegistryObject<Item> BASICBLOCKITEM = ITEMS.register("basic_block",
+                                                                () -> new BlockItem(new BasicBlock(), BasicBlock.basicProps));
 
+    //Blocks
+    public static final RegistryObject<Block> BASICBLOCK = BLOCKS.register("basic_block", BasicBlock::new);
 }

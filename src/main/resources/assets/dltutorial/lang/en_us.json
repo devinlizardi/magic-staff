@@ -2,5 +2,6 @@
   "item.dltutorial.ruby": "Ruby",
   "item.dltutorial.staff": "Staff",
   "item.dltutorial.mushyroom": "MushyRoom",
+  "block.dltutorial.basic_block": "Basic Block",
   "itemGroup.tutorialTab" : "Tutorial Group"
 }
