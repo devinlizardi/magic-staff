@@ -2,6 +2,7 @@ package com.devlizard.tutorial.util;
 
 import com.devlizard.tutorial.TutorialMod;
 import com.devlizard.tutorial.items.ItemBase;
+import com.devlizard.tutorial.items.Mushyroom;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -24,11 +25,12 @@ public class RegistryHandler {
     public static void register() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         ITEMS.register(modEventBus);
-        BLOCKS.register(modEventBus);
+        //BLOCKS.register(modEventBus);
     }
 
     //Items
     public static final RegistryObject<Item> RUBY = ITEMS.register("ruby", ItemBase::new);
-    public static final RegistryObject<Item> STAFF = ITEMS.register("staff", () -> new ItemBase());
+    public static final RegistryObject<Item> STAFF = ITEMS.register("staff", ItemBase::new);
+    public static final RegistryObject<Item> MUSHYROOM = ITEMS.register("mushyroom", Mushyroom::new);
 
 }

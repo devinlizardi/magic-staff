@@ -11,6 +11,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.particles.IParticleData;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.util.text.TextComponent;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
@@ -24,32 +25,17 @@ import net.minecraftforge.fml.common.Mod;
 public class ModClientEvents {
 
     @SubscribeEvent
-    public static void onAttackEntity(AttackEntityEvent event) {
-        PlayerEntity player = event.getPlayer();
-        if (player.getHeldItemMainhand().getItem() == RegistryHandler.RUBY.get()) {
-
-            if (!event.getTarget().isAlive()) {
-                return;
-            }
-
-            TutorialMod.LOGGER.info("Attack with Ruby?");
-            if (!event.getPlayer().getEntityWorld().isRemote) {
-                String msg = TextFormatting.RED + "Attacked Entity omg";
-                player.sendMessage(new StringTextComponent(msg));
-            }
-        }
-    }
-
-    @SubscribeEvent
     public static void onStaffUse(PlayerInteractEvent.LeftClickBlock event) {
         PlayerEntity player = event.getPlayer();
         World world = event.getWorld();
-        LightningBoltEntity bolt = new LightningBoltEntity(world, player.getPosX(), player.getPosY(), player.getPosZ(), false);
-        TNTEntity tnt = new TNTEntity(world, player.getPosX(), player.getPosY(), player.getPosZ(), player);
 
         if (player.getHeldItemMainhand().getItem() == RegistryHandler.STAFF.get()) {
+            LightningBoltEntity bolt = new LightningBoltEntity(world, player.getPosX(), player.getPosY(), player.getPosZ(), false);
+            TNTEntity tnt = new TNTEntity(world, player.getPosX(), player.getPosY(), player.getPosZ(), player);
             world.addEntity(bolt);
             world.addEntity(tnt);
+
+            // player.sendMessage();
             for (int i = 0; i < 10; i++) {
                 int r = (int) Math.round(Math.floor(Math.random() * 3));
                 Block randomBlock = getRandomBlock(r);

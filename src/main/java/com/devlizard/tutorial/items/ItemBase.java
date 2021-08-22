@@ -2,6 +2,7 @@ package com.devlizard.tutorial.items;
 
 import com.devlizard.tutorial.TutorialMod;
 import net.minecraft.item.Item;
+import net.minecraft.item.Items;
 
 /* LESSON 1.0
 * Extends and super()
