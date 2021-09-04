@@ -39,7 +39,6 @@ public class RegistryHandler {
     public static final RegistryObject<Block> BASIC_BLOCK = BLOCKS.register("basic_block", BasicBlock::new);
 
     //BlockItems
-    public static final RegistryObject<Item> BASIC_BLOCK_ITEM = ITEMS.register("basic_block",
-            () -> new BlockItem(BASIC_BLOCK.get(), BasicBlock.basicProps));
+    public static final RegistryObject<Item> BASIC_BLOCK_ITEM = ITEMS.register("basic_block", BasicBlock::buildItem);
 
 }
