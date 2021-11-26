@@ -7,8 +7,11 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
+import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraftforge.common.ToolType;
 import com.devlizard.tutorial.util.RegistryHandler;
+
+import java.util.stream.Stream;
 
 public class BasicBlock extends Block {
     private static int MAX_STACK_SIZE = 20;
@@ -27,10 +30,4 @@ public class BasicBlock extends Block {
         return new BlockItem(RegistryHandler.BASIC_BLOCK.get(), basicProps);
     }
 
-    // render using a BakedModel (mbe01_block_simple.json --> mbe01_block_simple_model.json)
-    // not strictly required because the default (super method) is MODEL.
-//    @Override
-//    public BlockRenderType getRenderType(BlockState blockState) {
-//        return BlockRenderType.MODEL;
-//    }
 }
